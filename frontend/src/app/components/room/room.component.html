@@ -1,16 +1,31 @@
 <div class="video-grid">
-  <div *ngFor="let video of videos">
-    <span *ngIf="video.userId !==  currentUserId; else currentUserVideoLabel">{{ video.userId }}</span>
+  <div class="container-user-camera" *ngFor="let video of videos">
+    <span class="user-id" *ngIf="video.userId !== currentUserId; else currentUserVideoLabel">{{ video.userId }}</span>
 
-    <ng-template #currentUserVideoLabel>
-      <span>You</span>
-    </ng-template>
+    <span class="user-id" #currentUserVideoLabel> <span>You</span> </span>
 
-    <video 
+    <video
       [srcObject]="video.srcObject"
       (loadedmetadata)="onLoadedMetadata($event)"
       [muted]="video.muted"
     >
     </video>
+
+    <div class="container-user-actions">
+      <!-- Camera - Enable/Disable -->
+      <button type="button">
+        <mat-icon>videocam</mat-icon>
+      </button>
+      
+      <!-- Mic - Enable/Disable -->
+      <button type="button">
+        <mat-icon>mic_off</mat-icon>
+      </button>
+
+      <!-- Room - Exit -->
+      <button type="button">
+        <mat-icon>call_end</mat-icon>
+      </button>
+    </div>
   </div>
 </div>

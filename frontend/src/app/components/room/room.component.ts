@@ -55,7 +55,7 @@ export class RoomComponent implements OnInit {
         call.answer(stream);
 
         call.on('stream', (otherUserVideoStream: MediaStream) => {
-          alert('Receiving other stream' + otherUserVideoStream);
+          alert('Receiving other stream: ' + otherUserVideoStream);
 
           this.addOtherUserVideo(call.metadata.userId, otherUserVideoStream);
         });
@@ -110,7 +110,7 @@ export class RoomComponent implements OnInit {
     this.videos.push({
       muted: false,
       srcObject: stream,
-      userId,
+      userId: userId,
     });
   }
 
