@@ -38,8 +38,15 @@
   margin: auto;
 
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(33.33%, 1fr));
+  grid-template-rows: auto auto;
+
+  //! https://developer.mozilla.org/pt-BR/docs/Web/CSS/grid-template-columns
+
+  row-gap: 0.25rem;
+  column-gap: 0.25rem;
+  padding: 0.25rem;
+
   align-items: center;
 }
 
@@ -51,10 +58,12 @@
 
 .user-video-container {
   position: relative;
-  width: 100%;
   height: 100%;
 
-  border: 1px solid blue;
+  flex-grow: 1;
+  flex-basis: 0;
+
+  //border: 1px solid yellow;
 
   &:nth-of-type(1) {
     background-color: red;

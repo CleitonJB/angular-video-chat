@@ -31,7 +31,7 @@ export class RoomComponent implements OnInit {
     console.log(`Initialize Peer with id: ${this.currentUserId}`);
     
     const myPeer = new Peer(this.currentUserId, {
-      host: '/',
+      host: 'localhost',
       port: 3001
     });
 
